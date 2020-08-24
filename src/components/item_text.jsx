@@ -1,28 +1,18 @@
 import React from 'react';
 import Style from './styles/item_text.module.scss'
 
-const ItemText = ({data, available, handleSelect, selected}) => {
-
-  const [isHovered, setHovered] = React.useState(false);
-
-  let handleHover = (e) => {
-    setHovered(true)
-  }
-
-  let handleOffHover = (e) => {
-    setHovered(false)
-  }
+const ItemText = ({data, isHovered, selected, available}) => {
 
   return (
 
 
-      <div className={Style.item_text_wrapper}>
+      <div className={ available ? `${Style.wrapper}`: `${Style.wrapper_unavailable}`}>
         <span className={
           !selected
-            ? `${Style.item_text_slogan}`:
+            ? `${Style.slogan}`:
           !isHovered
-            ? `${Style.item_text_slogan}`
-            : `${Style.item_text_slogan_angry}`
+            ? `${Style.slogan}`
+            : `${Style.slogan_angry}`
           }>
           {
             !selected
@@ -32,13 +22,13 @@ const ItemText = ({data, available, handleSelect, selected}) => {
               : data.angrySlogan
           }
         </span>
-        <span className={Style.item_text_title}>
+        <span className={Style.title}>
           {data.title}
         </span>
-        <span className={Style.item_text_filling}>
+        <span className={Style.filling}>
           {data.filling}
         </span>
-        <span className={Style.item_text_offer}>
+        <span className={Style.offer}>
           {data.offer}
         </span>
       </div>

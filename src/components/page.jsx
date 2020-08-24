@@ -4,6 +4,7 @@ import Class from './styles/page.module.scss';
 
 const Container = ({ data }) => {
 
+  // eslint-disable-next-line
   const [goods, setGoods] = React.useState(data)
 
 
@@ -12,7 +13,7 @@ const Container = ({ data }) => {
 
     for (let product of data){
 
-      if (product.id === clicked){
+      if (product.id === clicked && product.available){
         product.selected = !product.selected;
       }
 

@@ -1,5 +1,7 @@
 import React from 'react';
-import Style from './styles/item.module.scss'
+import Style from './styles/item.module.scss';
+import ItemText from './item_text'
+import ItemLink from './item_link'
 
 const Item = ({data, available, handleSelect, selected}) => {
 
@@ -22,32 +24,9 @@ const Item = ({data, available, handleSelect, selected}) => {
           ? `${Style.item_card} ${Style.item_card_selected}`
           : Style.item_card}>
 
-      <div className={Style.item_text_wrapper}>
-        <span className={
-          !selected
-            ? `${Style.item_text_slogan}`:
-          !isHovered
-            ? `${Style.item_text_slogan}`
-            : `${Style.item_text_slogan_angry}`
-          }>
-          {
-            !selected
-              ? data.slogan:
-            !isHovered
-              ? data.slogan
-              : data.angrySlogan
-          }
-        </span>
-        <span className={Style.item_text_title}>
-          {data.title}
-        </span>
-        <span className={Style.item_text_filling}>
-          {data.filling}
-        </span>
-        <span className={Style.item_text_offer}>
-          {data.offer}
-        </span>
-      </div>
+
+        <ItemText data={data} isHovered={isHovered} selected={selected} available={available} />
+
 
       <div className={Style.item_quant}>
         <span className={Style.item_quant_numb}>
@@ -64,7 +43,7 @@ const Item = ({data, available, handleSelect, selected}) => {
         !available
           ? data.soldOut :
         !selected
-          ? data.callToAction
+          ? <ItemLink comment={data.callToAction}/>
           : data.tasteDetail
       }
     </span>

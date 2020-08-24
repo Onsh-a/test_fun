@@ -1,0 +1,47 @@
+.wrapper {
+  font-family: 'trebuchet';
+  width: 230px;
+  display: flex;
+  margin-top: 20px;
+  margin-left: 45px;
+  flex-direction: column;
+  pointer-events: none;
+
+  &_unavailable {
+    opacity: 0.3;
+    width: 230px;
+    display: flex;
+    color: black;
+    margin-top: 20px;
+    margin-left: 45px;
+    flex-direction: column;
+    pointer-events: none;
+  }
+}
+
+.title {
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.slogan {
+  font-size: 16px;
+  line-height: 19px;
+  color: #666666;
+
+  &_angry {
+    color: #D91667;
+  }
+}
+
+.filling {
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.offer {
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #666666;
+}
