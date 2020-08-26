@@ -1,13 +1,13 @@
 import React from 'react';
 import Style from './styles/item.module.scss';
 
-const ItemLink = ({ comment }) => {
+const ItemLink = ({ comment, handleSelect, id }) => {
 
 
   return (
     <div className={Style.item_comment}>
       {comment}
-      <span className={Style.item_comment_buy_link}> купи.</span>
+      <span id={id} onClick={ handleSelect } className={Style.item_comment_buy_link}> купи.</span>
     </div>
   )
 }

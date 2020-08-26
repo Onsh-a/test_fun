@@ -5,8 +5,7 @@ import Class from './styles/page.module.scss';
 const Container = ({ data }) => {
 
   // eslint-disable-next-line
-  const [goods, setGoods] = React.useState(data)
-
+  const [goods, setGoods] = React.useState(data);
 
   let handleSelect = (e) => {
     let clicked = parseInt(e.target.id);
@@ -22,7 +21,7 @@ const Container = ({ data }) => {
   }
 
   let items = data.map((item, i) => {
-    return <Item handleSelect={handleSelect} key={i} data={item} available={item.available} selected={item.selected}/>
+    return <Item handleSelect={handleSelect} key={i} data={item} available={item.available} selected={item.selected} handleSelect={handleSelect}/>
   })
 
   return (

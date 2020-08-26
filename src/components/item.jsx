@@ -6,18 +6,23 @@ import ItemLink from './item_link'
 const Item = ({data, available, handleSelect, selected}) => {
 
   const [isHovered, setHovered] = React.useState(false);
+  let didHovered = false;
 
   let handleHover = (e) => {
-    setHovered(true)
+    setHovered(false)
   }
 
   let handleOffHover = (e) => {
-    setHovered(false)
+    let selectClass = e.target.className.split(' ').pop()
+
+    if (selectClass == Style.item_card_selected) {
+      setHovered(true)
+    }
   }
 
   return (
 
-  <div onMouseOver={ handleHover } onMouseOut={ handleOffHover } className={Style.item} id={data.id}>
+  <div onMouseEnter= {handleHover} onMouseOut={ handleOffHover } className={Style.item} id={data.id}>
     <div id={data.id} onClick={handleSelect} className={!available
         ? `${Style.item_card} ${Style.item_card_disabled}`
         : selected
@@ -43,7 +48,7 @@ const Item = ({data, available, handleSelect, selected}) => {
         !available
           ? data.soldOut :
         !selected
-          ? <ItemLink comment={data.callToAction}/>
+          ? <ItemLink comment={data.callToAction} handleSelect={handleSelect} id={data.id}/>
           : data.tasteDetail
       }
     </span>
