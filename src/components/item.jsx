@@ -6,7 +6,6 @@ import ItemLink from './item_link'
 const Item = ({data, available, handleSelect, selected}) => {
 
   const [isHovered, setHovered] = React.useState(false);
-  let didHovered = false;
 
   let handleHover = (e) => {
     setHovered(false)
@@ -15,7 +14,7 @@ const Item = ({data, available, handleSelect, selected}) => {
   let handleOffHover = (e) => {
     let selectClass = e.target.className.split(' ').pop()
 
-    if (selectClass == Style.item_card_selected) {
+    if (selectClass === Style.item_card_selected) {
       setHovered(true)
     }
   }

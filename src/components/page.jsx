@@ -1,6 +1,6 @@
 import React from 'react';
 import Item from './item';
-import Class from './styles/page.module.scss';
+import Style from './styles/page.module.scss';
 
 const Container = ({ data }) => {
 
@@ -21,11 +21,11 @@ const Container = ({ data }) => {
   }
 
   let items = data.map((item, i) => {
-    return <Item handleSelect={handleSelect} key={i} data={item} available={item.available} selected={item.selected} handleSelect={handleSelect}/>
+    return <Item handleSelect={handleSelect} key={i} data={item} available={item.available} selected={item.selected}/>
   })
 
   return (
-    <div className={Class.container}>
+    <div className={Style.container}>
 
       { items }
 
